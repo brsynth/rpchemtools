@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Set of filters to be used for chemical standardisation
 

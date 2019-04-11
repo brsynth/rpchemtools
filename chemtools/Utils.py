@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Starting a new toolbox to handle chemical compounds
 """
