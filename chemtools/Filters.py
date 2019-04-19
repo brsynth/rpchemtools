@@ -7,7 +7,7 @@ Set of filters to be used for chemical standardisation
 """
 
 from copy import deepcopy
-from rdkit.Chem import AddHs, GetMolFrags, Kekulize, MolToInchi, MolFromInchi, MolFromSmarts, MolFromSmiles, RemoveStereochemistry, MolToSmiles
+from rdkit.Chem import AddHs, GetMolFrags, Kekulize, MolToInchi, MolFromInchi, MolFromSmarts, MolFromSmiles, RemoveStereochemistry, MolToSmiles, RemoveHs
 from rdkit.Chem.AllChem import Compute2DCoords, ReplaceSubstructs
 from rdkit.Chem.Descriptors import MolWt
 
@@ -209,7 +209,8 @@ class Filters(object):
         :param   mol_in:  RDKit Mol
         :return  mol_out: RDKit Mol
         """
-        return cls._neutralise_charge_method2(mol_in)
+        return cls._neutralise_charge_method1(mol_in)
+        # return cls._neutralise_charge_method2(mol_in)
 
     @classmethod
     def add_hydrogen(cls, mol_in, addCoords=True):
@@ -219,6 +220,15 @@ class Filters(object):
         :return  mol_out: RDKit Mol
         """
         return AddHs(mol_in, explicitOnly=False, addCoords=addCoords)
+
+    @classmethod
+    def remove_hydrogen(cls, mol_in, addCoords=True):
+        """Implicit all hydrogens.
+        
+        :param   mol_in:  RDKit Mol
+        :return  mol_out: RDKit Mol
+        """
+        return RemoveHs(mol_in, explicitOnly=False, addCoords=addCoords)
 
     @classmethod
     def kekulize(cls, mol_in):

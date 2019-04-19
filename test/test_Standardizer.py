@@ -40,7 +40,8 @@ def test_filter_rr_tunable():
             'OP_COMMUTE_INCHI': False,
             'OP_KEEP_BIGGEST': True,
             'OP_ADD_HYDROGEN': True,
-            'OP_KEKULIZE': True
+            'OP_KEKULIZE': True,
+            'OP_NEUTRALISE_CHARGE_LATE': True
     }
     # Violacein, default parameter
     mol = MolFromInchi('InChI=1S/C20H13N3O3/c24-10-5-6-15-12(7-10)14(9-21-15)17-8-13(19(25)23-17)18-11-3-1-2-4-16(11)22-20(18)26/h1-9,21,24H,(H,22,26)(H,23,25)/b18-13+')
@@ -84,7 +85,7 @@ def test_filter_rr_tunable():
     assert MolToSmiles(ans) == '[H]OC(=O)C([H])(O[H])C([H])([H])[H]'
     # L-lactate, no charge neutralisation
     mol = MolFromSmiles('C[C@@H](C(=O)[O-])O')
-    ans = Standardizer(filter_fun='filter_rr_tunable', params={'OP_NEUTRALISE_CHARGE': False}).compute(mol)
+    ans = Standardizer(filter_fun='filter_rr_tunable', params={'OP_NEUTRALISE_CHARGE': False, 'OP_NEUTRALISE_CHARGE_LATE': False}).compute(mol)
     assert MolToInchi(ans) == 'InChI=1S/C3H6O3/c1-2(4)3(5)6/h2,4H,1H3,(H,5,6)/p-1/t2-/m0/s1'
     assert MolToSmiles(ans) == '[H]O[C@]([H])(C(=O)[O-])C([H])([H])[H]'
     # L-lactate, implicit Hs & no stereo

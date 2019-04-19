@@ -77,7 +77,7 @@ def filter_rr_tunable(
         OP_REMOVE_ISOTOPE=True, OP_NEUTRALISE_CHARGE=True,
         OP_REMOVE_STEREO=False, OP_COMMUTE_INCHI=False,
         OP_KEEP_BIGGEST=True, OP_ADD_HYDROGEN=True,
-        OP_KEKULIZE=True
+        OP_KEKULIZE=True, OP_NEUTRALISE_CHARGE_LATE=True
     ):
     """Tunable standardization function.
     
@@ -115,6 +115,10 @@ def filter_rr_tunable(
     if OP_KEEP_BIGGEST:
         mol = F.keep_biggest(mol)
     if any([OP_REMOVE_STEREO, OP_COMMUTE_INCHI, OP_KEEP_BIGGEST]):
+        SanitizeMol(mol, sanitizeOps=SanitizeFlags.SANITIZE_ALL, catchErrors=False)
+    #
+    if OP_NEUTRALISE_CHARGE_LATE:
+        mol = F.neutralise_charge(mol)
         SanitizeMol(mol, sanitizeOps=SanitizeFlags.SANITIZE_ALL, catchErrors=False)
     #
     if OP_ADD_HYDROGEN:
