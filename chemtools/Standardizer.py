@@ -12,6 +12,7 @@ at INRA.
 
 from chemtools.Filters import Filters
 from rdkit.Chem import Cleanup, SanitizeMol, SanitizeFlags
+from rdkit.Chem.AllChem import AssignStereochemistry
 
 
 class Standardizer(object):
@@ -46,6 +47,7 @@ class Standardizer(object):
     def filter_minimal(self, mol):
         """Minimal standardization."""
         SanitizeMol(mol, sanitizeOps=SanitizeFlags.SANITIZE_ALL, catchErrors=False)
+        AssignStereochemistry(mol, cleanIt=True, force=True)  # Fix bug TD201904.01
         return mol
         
     def compute(self, mol):
@@ -61,6 +63,7 @@ def filter_rr_legacy(mol):
     F = Filters()
     Cleanup(mol)
     SanitizeMol(mol, sanitizeOps=SanitizeFlags.SANITIZE_ALL, catchErrors=False)
+    AssignStereochemistry(mol, cleanIt=True, force=True)  # Fix bug TD201904.01
     mol = F.remove_isotope(mol)
     mol = F.neutralise_charge(mol)
     SanitizeMol(mol, sanitizeOps=SanitizeFlags.SANITIZE_ALL, catchErrors=False)
@@ -95,6 +98,7 @@ def filter_rr_tunable(
     # Always perform the basics..
     Cleanup(mol)
     SanitizeMol(mol, sanitizeOps=SanitizeFlags.SANITIZE_ALL, catchErrors=False)
+    AssignStereochemistry(mol, cleanIt=True, force=True)  # Fix bug TD201904.01
     # 
     if OP_REMOVE_ISOTOPE:
         mol = F.remove_isotope(mol)
