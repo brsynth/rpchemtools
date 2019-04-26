@@ -2,7 +2,8 @@
 import pytest
 
 import inspect
-from chemtools.Standardizer import Standardizer, sequence_tunable
+from chemtools.Standardizer import Standardizer
+from chemtools.Sequences import sequence_tunable
 from rdkit.Chem import MolFromSmiles, MolToSmiles
 from rdkit.Chem import MolFromInchi, MolToInchi
 
