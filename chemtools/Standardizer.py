@@ -28,21 +28,22 @@ class Standardizer(object):
             """
             return self.compute(mol)
 
-    def __init__(self, filter_fun=None, params=None):
+    def __init__(self, sequence_fun=None, params=None):
         """Set up parameters for the standardization
         
         :param rdmol: an RDKit Mol object
         """
         # Function to be used for standardizing compounds
         # Add you own function as method class
-        if filter_fun is None:
-            self.filter_fun = self.filter_minimal
-        elif callable(filter_fun):  # Guess: fun_filters is the function itself
-            self.filter_fun = filter_fun
-        elif type(filter_fun) == str:
-            self.filter_fun = globals()[filter_fun]  # Guess: fun_filters is the name of the function
+        if sequence_fun is None:
+            self.sequence_fun = self.filter_minimal
+        elif callable(sequence_fun):  # Guess: fun_filters is the function itself
+            self.sequence_fun = sequence_fun
+        elif type(sequence_fun) == str:
+            self.sequence_fun = globals()[sequence_fun]  # Guess: fun_filters is the name of the function
         # Arguments to be passed to any custom standardization function
-        self.params = params
+        self._params = params if params else None
+
 
     def filter_minimal(self, mol):
         """Minimal standardization."""
@@ -52,13 +53,14 @@ class Standardizer(object):
         
     def compute(self, mol):
         """Do the job."""
-        if self.params is None:
-            return self.filter_fun(mol)
+        if self._params is None:
+            return self.sequence_fun(mol)
         else:
-            return self.filter_fun(mol, **self.params)
-    
-def filter_rr_legacy(mol):
-    """Operations used for the first version of RetroRules
+            return self.sequence_fun(mol, **self._params)
+
+
+def sequence_rr_legacy(mol):
+    """Sequence of filters applied for the first version of RetroRules
     """
     F = Filters()
     Cleanup(mol)
@@ -72,14 +74,15 @@ def filter_rr_legacy(mol):
     mol = F.kekulize(mol)
     return mol
 
-def filter_rr_tunable(
+
+def sequence_tunable(
         mol,
         OP_REMOVE_ISOTOPE=True, OP_NEUTRALISE_CHARGE=True,
         OP_REMOVE_STEREO=False, OP_COMMUTE_INCHI=False,
         OP_KEEP_BIGGEST=True, OP_ADD_HYDROGEN=True,
         OP_KEKULIZE=True, OP_NEUTRALISE_CHARGE_LATE=True
     ):
-    """Tunable standardization function.
+    """Tunable sequence of filters for standardization.
     
     Operations will made in the following order:
      1 RDKit Cleanup      -- always
