@@ -1,4 +1,4 @@
-# (New) Toolbox to deal with chemicals
+# (Yet another) toolbox to deal with chemicals
 
 Thomas Duigou (thomas.duigou@inra.fr), INRA, 2018-2019
 
