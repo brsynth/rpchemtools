@@ -1,4 +1,4 @@
-# Toolbox to deal with chemicals
+# (New) Toolbox to deal with chemicals
 
 Thomas Duigou (thomas.duigou@inra.fr), INRA, 2018-2019
 
@@ -10,6 +10,28 @@ pip install -e .
 ## Test
 ```bash
 pytest
+```
+
+## Use
+```
+from chemtools.Standardizer import Standardizer
+from rdkit.Chem import MolFromInchi
+
+inchi = 'InChI=1S/C20H13N3O3/c24-10-5-6-15-12(7-10)14(9-21-15)17-8-13(19(25)23-17)18-11-3-1-2-4-16(11)22-20(18)26/h1-9,21,24H,(H,22,26)(H,23,25)/b18-13+'
+
+params = {
+    'OP_REMOVE_ISOTOPE': True,
+    'OP_NEUTRALISE_CHARGE': True,
+    'OP_REMOVE_STEREO': True,
+    'OP_COMMUTE_INCHI': True,
+    'OP_KEEP_BIGGEST': True,
+    'OP_ADD_HYDROGEN': False,
+    'OP_KEKULIZE': False,
+    'OP_NEUTRALISE_CHARGE_LATE': True
+}
+
+mol = MolFromInchi(inchi, sanitize=False)
+smol = Standardizer(sequence_fun='sequence_tunable', params=params).compute(mol)
 ```
 
 ## Bugs
