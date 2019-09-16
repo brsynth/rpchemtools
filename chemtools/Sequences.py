@@ -1,8 +1,11 @@
+#!/usr/bin/env python
 """Sequences of filters to be used for standardization."""
+
 
 from chemtools.Filters import Filters
 from rdkit.Chem import Cleanup, SanitizeMol, SanitizeFlags
 from rdkit.Chem.AllChem import AssignStereochemistry
+
 
 def sequence_rr_legacy(mol):
     """Sequence of filters applied for the first version of RetroRules

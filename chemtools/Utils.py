@@ -6,13 +6,12 @@ Starting a new toolbox to handle chemical compounds
 from rdkit.Chem import MolFromSmiles, MolFromInchi, MolToSmiles, MolToInchi, MolToInchiKey, AddHs
 
 
-
 def convert_depiction(idepic, itype='smiles', otype={'inchikey'}):
     """Convert chemical depiction to others type of depictions
     
-    :param depic: string depiction to be converted, str
-    :param itype: type of depiction provided as input, str
-    :param otype: types of depiction to be generated, {"", "", ..}
+    :param  idepic: string depiction to be converted, str
+    :param   itype: type of depiction provided as input, str
+    :param   otype: types of depiction to be generated, {"", "", ..}
     :return odepic: generated depictions, {"otype1": "odepic1", ..}
     
     Usage example:

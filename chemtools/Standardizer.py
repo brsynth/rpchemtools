@@ -5,7 +5,7 @@ Standardize chemicals
 This is basically a rework of the standardizer.py written by Baudoin Delepine
 at INRA.
 
-@author: Baudoin Delépine, 2016-2017
+@author: Baudoin Delepine, 2016-2017
 @author: Thomas Duigou, 2018-2019
 """
 

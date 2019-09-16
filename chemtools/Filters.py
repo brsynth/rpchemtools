@@ -2,7 +2,7 @@
 """
 Set of filters to be used for chemical standardisation
 
-@author: Baudoin Delépine, 2016-2017
+@author: Baudoin Delepine, 2016-2017
 @author: Thomas Duigou, 2018-2019
 """
 
@@ -216,7 +216,8 @@ class Filters(object):
     def add_hydrogen(cls, mol_in, addCoords=True):
         """Explicit all hydrogens.
         
-        :param   mol_in:  RDKit Mol
+        :param    mol_in: RDKit Mol
+        :param addCoords: Add coordinate to added Hs, bool
         :return  mol_out: RDKit Mol
         """
         return AddHs(mol_in, explicitOnly=False, addCoords=addCoords)
@@ -225,7 +226,8 @@ class Filters(object):
     def remove_hydrogen(cls, mol_in, addCoords=True):
         """Implicit all hydrogens.
         
-        :param   mol_in:  RDKit Mol
+        :param    mol_in: RDKit Mol
+        :param addCoords: Add coordinate to added Hs, bool
         :return  mol_out: RDKit Mol
         """
         return RemoveHs(mol_in, explicitOnly=False, addCoords=addCoords)
