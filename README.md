@@ -9,6 +9,7 @@ Thomas Duigou (thomas.duigou@inra.fr), INRA, 2018-2019
 conda create --name myenv python=3.6
 source activate myenv
 conda install --channel rdkit rdkit=2018.09.1.0
+conda install --channel conda-forge pytest
 
 # Install as a local package
 pip install -e .
