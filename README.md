@@ -1,26 +1,13 @@
 # rpchemtools
 
-Toolbox to deal with chemicals
+Minimalist toolbox to deal with chemicals
 
 ## Installation
-```bash
 
-# Setting the conda env
+```bash
 conda create --name myenv python=3.6
 source activate myenv
-conda install --channel rdkit rdkit=2018.09.1.0
-conda install --channel conda-forge pytest
-
-# Install as a local package
-pip install -e .
-
-# Test
-pytest -v
-```
-
-## Test
-```bash
-pytest
+conda install --channel rdkit --channel tduigou
 ```
 
 ## Use

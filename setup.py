@@ -9,7 +9,7 @@ setup(
     name='rpchemtools',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-    description='Toolbox to deal with chemicals',
+    description='Minimalist toolbox to deal with chemicals',
     license='MIT',
     author='Thomas Duigou, Baudoin Delépine',
     author_email='thomas.duigou@inrae.fr',
