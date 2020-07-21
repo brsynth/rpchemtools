@@ -9,8 +9,8 @@ at INRA.
 @author: Thomas Duigou, 2018-2019
 """
 
-from chemtools import Sequences
-from chemtools.Filters import Filters
+from rpchemtools import Sequences
+from rpchemtools.Filters import Filters
 from rdkit.Chem import SanitizeMol, SanitizeFlags
 from rdkit.Chem.AllChem import AssignStereochemistry
 

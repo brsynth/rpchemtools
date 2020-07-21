@@ -2,7 +2,7 @@
 """Sequences of filters to be used for standardization."""
 
 
-from chemtools.Filters import Filters
+from rpchemtools.Filters import Filters
 from rdkit.Chem import Cleanup, SanitizeMol, SanitizeFlags
 from rdkit.Chem.AllChem import AssignStereochemistry
 
