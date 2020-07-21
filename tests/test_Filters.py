@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import pytest
 
-from chemtools.Filters import Filters
+from rpchemtools.Filters import Filters
 from rdkit.Chem import MolFromSmiles, MolToSmiles
 from rdkit.Chem import MolFromInchi, MolToInchi
 
