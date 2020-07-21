@@ -32,6 +32,13 @@ mol = MolFromInchi(inchi, sanitize=False)
 smol = Standardizer(sequence_fun='sequence_tunable', params=params).compute(mol)
 ```
 
+## Build
+```bash
+conda create --name build_env python=3
+conda install conda-build
+conda build recipe --channel rdkit
+```
+
 ## Bugs
 
 ### TD201904.01 -- stereochemistry assignment from MolToSmiles(sanitize=True) is not the same as MolToSmiles + SanitizeMol 
