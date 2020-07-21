@@ -1,6 +1,6 @@
-# (Yet another) toolbox to deal with chemicals
+# rpchemtools
 
-Thomas Duigou (thomas.duigou@inra.fr), INRA, 2018-2019
+Toolbox to deal with chemicals
 
 ## Installation
 ```bash
@@ -68,6 +68,7 @@ In [48]: AllChem.MolToInchiKey(m)
 Out[48]: 'AALOGNDNCMFSSI-UHFFFAOYSA-N'
 ```
 
-For the case of calling SanitizeMol after MolFromSmiles you can force rdkit to
-calculate the correct InChI key by calling AllChem.AssignStereochemistry(m1, cleanIt=True, force=True)
+For the case of calling SanitizeMol after MolFromSmiles you can
+force rdkit to calculate the correct InChI key by calling 
+AllChem.AssignStereochemistry(m1, cleanIt=True, force=True) 
 before calculating the key.
