@@ -20,6 +20,5 @@ setup(
     classifiers=[
         'Topic :: Scientific/Engineering',
         'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
     ]
 )
