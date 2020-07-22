@@ -5,9 +5,9 @@ Minimalist toolbox to deal with chemicals
 ## Installation
 
 ```bash
-conda create --name myenv
+conda create --name myenv python=3
 source activate myenv
-conda install --channel rdkit --channel tduigou
+conda install --channel rdkit --channel tduigou rpchemtools
 ```
 
 ## Use
