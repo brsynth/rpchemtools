@@ -5,7 +5,7 @@ Minimalist toolbox to deal with chemicals
 ## Installation
 
 ```bash
-conda create --name myenv python=3.6
+conda create --name myenv
 source activate myenv
 conda install --channel rdkit --channel tduigou
 ```
