@@ -6,13 +6,15 @@ Minimalist toolbox to deal with chemicals
 
 ```bash
 conda create --name myenv python=3
-source activate myenv
+conda activate myenv
 conda install --channel rdkit --channel tduigou rpchemtools
 ```
 
 ## Use
+
+### Standardise chemical following several filters
 ```
-from chemtools.Standardizer import Standardizer
+from rpchemtools.Standardizer import Standardizer
 from rdkit.Chem import MolFromInchi
 
 inchi = 'InChI=1S/C20H13N3O3/c24-10-5-6-15-12(7-10)14(9-21-15)17-8-13(19(25)23-17)18-11-3-1-2-4-16(11)22-20(18)26/h1-9,21,24H,(H,22,26)(H,23,25)/b18-13+'
