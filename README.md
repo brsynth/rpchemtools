@@ -1,3 +1,6 @@
+[![Anaconda-Server Badge](https://anaconda.org/brsynth/rpchemtools/badges/version.svg)](https://anaconda.org/brsynth/rpchemtools)
+[![Anaconda-Server Badge](https://anaconda.org/brsynth/rpchemtools/badges/license.svg)](https://anaconda.org/brsynth/rpchemtools)
+
 # rpchemtools
 
 Minimalist toolbox to deal with chemicals
